@@ -14,6 +14,6 @@ def link_parse(input_image_path: str) -> list:
     ep_image, endpoints = image_utils.get_endpoint_for_labeled_image(cc, labeled, numcc)
     match_matrix        = image_utils.get_match_matrix(bina_image, numcc)
     ep_link, mathced_endpoints = image_utils.get_matched_endpoints(cc, match_matrix, endpoints)
-    cp_image, cross_pnt        = image_utils.get_crossing_pos(ep_link, ep_image, labeled, numcc)
+    cp_image, cross_pnts       = image_utils.get_crossing_pos(ep_link, ep_image, labeled, numcc)
 
     return [[1, 5, 2, 4], [3, 1, 4, 6], [5, 3, 6, 2]] # stub
