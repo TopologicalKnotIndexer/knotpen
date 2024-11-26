@@ -1,3 +1,5 @@
+knotpen/image_utils/log/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
