@@ -10,9 +10,10 @@ def link_parse(input_image_path: str) -> list:
     grey_image = image_utils.get_grey_image(input_image_path)
     blur_image = image_utils.get_blur_image(grey_image)
     bina_image = image_utils.get_bin_image(blur_image)
-    cc, lableed, numcc = image_utils.get_cc_for_image(bina_image)
-    ep_image, endpoints = image_utils.get_endpoint_for_labeled_image(cc, lableed, numcc)
+    cc, labeled, numcc  = image_utils.get_cc_for_image(bina_image)
+    ep_image, endpoints = image_utils.get_endpoint_for_labeled_image(cc, labeled, numcc)
     match_matrix        = image_utils.get_match_matrix(bina_image, numcc)
-    mathced_endpoints   = image_utils.get_matched_endpoints(ep_image, match_matrix, endpoints)
+    ep_link, mathced_endpoints = image_utils.get_matched_endpoints(cc, match_matrix, endpoints)
+    cp_image, cross_pnt        = image_utils.get_crossing_pos(ep_link, ep_image, labeled, numcc)
 
     return [[1, 5, 2, 4], [3, 1, 4, 6], [5, 3, 6, 2]] # stub
